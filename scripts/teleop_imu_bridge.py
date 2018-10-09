@@ -16,10 +16,10 @@ class TeleopImu():
                     
         
         if self.offset_angular is None:
-            self.offset_angular = data.orientation.x 
+            self.offset_angular = -data.orientation.x 
         if self.offset_linear is None:
             self.offset_linear = data.orientation.y
-        new_z = data.orientation.x - self.offset_angular
+        new_z = -data.orientation.x - self.offset_angular
         new_x = data.orientation.y - self.offset_linear
         self.last_cmd_stamp = rospy.get_time() # update last time stamp
         if math.fabs(self.cmd.linear.x-new_x) > 0.01 or math.fabs(self.cmd.angular.z-new_z) > 0.01:
