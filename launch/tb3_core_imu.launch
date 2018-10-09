@@ -1,0 +1,6 @@
+<launch>
+     <node pkg="teleop_imu" name="teleop_imu_bridge" type="teleop_imu_bridge.py"/>
+
+     <include file="$(find turtlebot3_bringup)/launch/turtlebot3_core.launch"/>
+
+</launch>
